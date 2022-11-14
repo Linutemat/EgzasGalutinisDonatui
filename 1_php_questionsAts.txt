@@ -1,0 +1,137 @@
+Atsakymus pateikite po klausimu.
+
+1. Parašykite 1 būdą, kaip įvykdyti (paleisti) PHP script'ą iš komandinės eilutės.
+php -f
+
+2. Kas privalo būti PHP failo pirmoje eilutėje, kad PHP žinotų, jog tolesnės eilutės yra PHP kodas?
+
+<?php
+
+3. Kokiais simboliais gali prasidėti PHP kintamojo pavadinimas (po $)?
+
+Yra kone universaliai sutarta kintamųjų pavadinimą pradėti mažąja raide.
+Jeigu pavadinimą sudaro keli žodžiai, tai antrasis ir kiti žodžiai rašomi iš didžiosios raides.
+
+
+4. Ar simbolis % gali būti naudojamas PHP kintamojo pavadinime?
+Ne. Gali būti sudaryti tik iš šių simbolių: didžiųjų bei mažųjų raidžių, skaičių ir žemųjų brūkšnių (_).
+
+5. Parašykite multiline PHP komentaro pavyzdį.
+/* 
+Rašau multiline PHP komentaro pavyzdį :)
+*/
+
+6. Parašykite pavadinimus šių konstantų:
+- konstanta, kuri perkelia output'ą į naują eilutę terminale.
+- konstanta, kurios reikšmė yra simbolis, naudojamas atskirti katalogų ir failų pavadinimus. 
+Ji naudojama aprašant failų kelius (file path). Šios konstantos reikšmė skiriasi priklausomai nuo operacinės sistemos.
+
+
+DIRECTORY_SEPARATOR
+
+7. Parašykite bent 4 duomenų tipus, naudojamus PHP kalboje.
+
+Skaliariniai–turi tik vieną reikšme vienu metu
+Int
+Float
+String
+Boolean
+
+Kompoziciniai– gali turėti daug reikšmių vienu metu
+Array
+Object – aptarsime OOP dalyje
+
+8. Kada iškviečiamas klasės konstruktorius?
+Konstruktorius yra kviečiamas kiekvieną kartą, kuomet yra instancijuojama klasė (naudojamas new).
+
+9. Turite kintamajį $someVariable = '15'. Pakeiskite jo tipą į 'int'.
+
+(int)$someVariable
+
+10. Kokia funkcija naudojama gauti masyvo narių skaičiui?
+count
+
+11. Kas nutinka, kai bandome sukurti masyvą, kuris turi kelis narius, kurių raktai (keys) sutampa?
+
+Jeigu yra kelios reikšmės su tais pačiais raktais, vėliausia reikšmė perrašys prieš tai ėjusias. Taip yra užtikrinamas raktų unikalumas
+
+
+12. Parašykite multidimensinio masyvo pavyzdį.
+$products = [
+
+    'furniture' => [
+
+        'product_1' => 'desk',
+
+        'product_2' => 'lamp',
+
+    ]
+
+];
+
+13. Koks operatorius yra naudojamas pridėti naują narį masyvui? Pateikite paprastą pavyzdį.
+[]
+enumeratyviąjam masyvui:
+$products = [];
+$products[] = 'desk';
+
+asociatyviąjam masyvui:
+$products = [];
+$products['product_1'] = 'desk';
+
+
+14. Kokia funkcija naudojama panaikinti masyvo nariui?
+
+unset
+$products= [
+ 'product_1' =>'desk',
+ 'product_2'=>'lamp',
+];
+unset($products['product_1']);
+
+15. Kokią funkciją naudotumėte pašalinti nereikalingus simbolius nuo string tipo reikšmės pradžios ir pabaigos (pvz. "-test-" -> "test")?
+
+trim
+
+16. Kuo skiriasi dvigubos ir viengubos kabutės? Įvardinkite pagrindinį skirtumą.
+
+$test=11;
+    echo '$test';//$test
+    echo PHP_EOL;
+    echo "$test";//11
+Viengubose kabutese kintamaji atspausdino kaip stringa, dvigubose kabutese suprato kad tai kintamasis ir atspausdino jo reiksme.
+
+17. Kam naudojame superglogalųjį kintamajį $_POST?
+
+Jis masyvo pavidalu saugo formos duomenis
+
+18. Kuo skiriasi abstrakti klasė nuo įprastos? Įvardinkite pagrindinį skirtumą.
+Abstrakti klasė negali būti inicializuota – pirmiausia turi būti aprašyta vaikinė klasė,
+ kuri paveldėtų abstrakčiąją klasę ir implementuotų abstrakčius metodus.
+
+19. Kokie yra PHP metodų/savybių matomumo lygiai? Trumpai juos aprašykite.
+private, public, protected.
+"Public"matomumas yra daugiausiai leidžiantis - galima pasiketi metodus ir savybes iš bet kurio konteksto (scope).
+"Protected" matomumas leidžia pasiekti juo pažymėtas savybes bei metodus tik paveldinčiose klasėse.
+"private" matomumas apriboja pasiekiamumą tik tos klasės, kurios savybė ar metodas yra deklaruotas, ribose.
+
+
+20. Kokia yra keyword'o 'break' paskirtis? Kur jis dažniausiai naudojamas?
+break- leidžia užbaigti ciklą nepabaigus iteruoti per visus narius. Nudojama, kai norime kad kadas toliau nebebūtų vykdomas.
+
+Veikia su visais ciklų tipais –while, do while, for, foreach.
+
+
+
+2ą. Kokia yra keyword'o 'continue' paskirtis? Kur jis dažniausiai naudojamas?
+continue – yra peršokama į sekančią iteraciją. Nesustabdo kodo vykdymo, tiesiog nustoja vykdyti iteraciją, ir peršoka į kitą.
+
+Veikia su visais ciklų tipais –while, do while, for, foreach.
+
+
+
+21. Įvardinkite jums žinomas su slaptažodžių hash'avimu susijusias PHP funkcijas. Trumpai paaiškinkite, kokia yra jų paskirtis.
+password_hash($_POST['password'], PASSWORD_DEFAULT) - užšifravome paswordą, kurį vartotojas įvedė registruodamasis,jį užšifruotą įrašėmė į duomenš bazę
+ ir tai negrįžtamas procesas, mes jo iššifuoti jau negalime,
+norint patikrinti, ar vartotojas prisijunkdamas įvedė teisingą paswordą, naudojome - password_verify($_POST['password'], $user['password']).
+Ši funkcija paima iš duomenų bazės užšifruotą vartotojo paswordą, palygina jį su input įvestu paswordu, ir sugeba patikrinti, ar jie vienodi.
